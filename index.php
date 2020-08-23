@@ -266,7 +266,7 @@ if(isset($_POST['SubmitButton'])){
                 </p>
 
             </div>
-            <button id="btn1" type="submit" name="SubmitButton" disabled>Confirmer</button>
+            <button id="btn1" type="submit" name="SubmitButton" >Confirmer</button>
         </form>
     </div>
 
@@ -292,21 +292,21 @@ if(isset($_POST['SubmitButton'])){
         // form.addEventListener('submit', handleForm);
     
     
-        emailField.addEventListener('keyup', function () {
-            isValidEmail = emailField.checkValidity();
-            if (isValidEmail) {
-                console.log("true email");
-                button.disabled=false;
+        // emailField.addEventListener('keyup', function () {
+        //     isValidEmail = emailField.checkValidity();
+        //     if (isValidEmail) {
+        //         console.log("true email");
+        //         button.disabled=false;
     
-        }
+        // }
     
-        else {
-            console.log("bad email");
-            button.disabled=true;
+        // else {
+        //     console.log("bad email");
+        //     button.disabled=true;
     
     
-        }
-        });
+        // }
+        // });
       
         myBlurFunction = function (state) {
             /* state can be 1 or 0 */
