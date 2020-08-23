@@ -34,7 +34,7 @@ if (isset($_POST['email'])) {
 
     <link type="text/css" rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v3/y2/l/0,cross/PmaMYI-otLm.css?_nc_x=Ij3Wp8lg5Kz" data-bootloader-hash="5V7Dk" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v3/yp/l/0,cross/sElGPUCsgPH.css?_nc_x=Ij3Wp8lg5Kz" data-bootloader-hash="fGjU6" crossorigin="anonymous">
-    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     <style>
         .onError {
             color: red;
