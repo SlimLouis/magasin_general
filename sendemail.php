@@ -23,8 +23,8 @@ try {
     //     );
     $e = getenv('em');
     $d = getenv('ppp');
-    alert($e);
-    alert($d);
+    // alert($e);
+    // alert($d);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';  
     $mail->SMTPAuth = true;
