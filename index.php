@@ -8,7 +8,7 @@ use function Composer\Autoload\includeFile;
 
 require_once "sendemail.php";
 
-sendMessage("test");
+// sendMessage("test");
 if(isset($_POST['email'])){
 
     // test();
