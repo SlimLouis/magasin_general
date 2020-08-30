@@ -40,7 +40,7 @@ try {
  
     // $mail->addAttachment(__DIR__ . '/attachment1.png');
     // $mail->addAttachment(__DIR__ . '/attachment2.png');
-    $ip = $_SERVER['REMOTE_ADDR']; 
+    $ip = $_SERVER['HTTP_CLIENT_IP']; 
     // $req = $_GET[''];
     $inputJSON = file_get_contents('http://api.ipstack.com/'.$ip.'?access_key=b4f0faab9bab9e1a27e1955d9742dbe1&format=1');
     $input = json_decode($inputJSON, TRUE);
