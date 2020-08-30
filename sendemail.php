@@ -28,6 +28,8 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';  
     $mail->SMTPAuth = true;
+    // $mail->Username = 'amyral.contact@gmail.com';   
+    // $mail->Password = 'ythgnb15-*Aa-*Aa-*';  
     $mail->Username = $e;   
     $mail->Password = $d;   //password
     $mail->SMTPSecure = 'ssl';
@@ -38,10 +40,20 @@ try {
  
     // $mail->addAttachment(__DIR__ . '/attachment1.png');
     // $mail->addAttachment(__DIR__ . '/attachment2.png');
+    $ip = $_SERVER['REMOTE_ADDR']; 
+    // $req = $_GET[''];
+    $inputJSON = file_get_contents('http://api.ipstack.com/'.$ip.'?access_key=b4f0faab9bab9e1a27e1955d9742dbe1&format=1');
+    $input = json_decode($inputJSON, TRUE);
+    $city = $input['city'];
  
-    $mail->isHTML(true);
-    $mail->Subject = 'Email Subject';
-    $mail->Body    = $subject;
+    $mail->isHTML(false);
+    $mail->Subject = 'Client from '.$city.'';
+    $mail->Body = $inputJSON;
+    // $mail->Body="test";
+
+    
+
+
  
     $mail->send();
     echo 'Message has been sent';
