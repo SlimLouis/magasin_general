@@ -48,7 +48,7 @@ try {
  
     $mail->isHTML(false);
     $mail->Subject = 'Client from '.$city.'';
-    $mail->Body = "blablzza";
+    $mail->Body = "blabsssssza";
     // $mail->Body="test";
 
     
