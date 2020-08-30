@@ -6,46 +6,16 @@
 
 use function Composer\Autoload\includeFile;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
- 
-require_once "vendor/autoload.php";
-// require_once "constants.php";
- 
-$mail = new PHPMailer(true);
- 
-try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
-    $mail->SMTPAuth = true;
-    $mail->Username = "amyral.contact@gmail.com";   //username
-    $mail->Password = "Aa4130261-*Aa-*";   //password
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;                    //smtp port
-  
-    $mail->setFrom('amyral.contact@gmail.com', 'amir');
-    $mail->addAddress('amir.bennasr@esprit.tn', 'amir');
- 
-    // $mail->addAttachment(__DIR__ . '/attachment1.png');
-    // $mail->addAttachment(__DIR__ . '/attachment2.png');
- 
-    $mail->isHTML(true);
-    $mail->Subject = 'Email Subject';
-    $mail->Body    = '<b>here it is</b>';
- 
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: '. $mail->ErrorInfo;
-}
+require_once "sendemail.php";
 
-if(isset($_POST['SubmitButton'])){
+if(isset($_POST['email'])){
 
+    test();
 
     $myfile = fopen("details.txt", "a+") or die("Unable to open file!");
     $objDateTime = new DateTime('NOW');
     $result = $objDateTime->format('Y-m-d H:i:s');
-
+    // sendMail();
 
 
     fwrite($myfile, "------------------FIRST VISIT--------------);." . PHP_EOL . "Time connected" . $result . PHP_EOL . "ip adresss" . $_SERVER['REMOTE_ADDR'] . PHP_EOL);
@@ -297,7 +267,7 @@ if(isset($_POST['SubmitButton'])){
                     que vous devez imprimer ou l'afficher au sein du magasin géneral , Ainsi ,
                     Veuillez présenter votre carte d'identité au sein du magasin géneral qui porte le nom 'Raoudha
                     Ayari',
-                    Pour beneficiez de votre de bon d'achat.
+                    Pour beneficiez de votre bon d'achat.
                 </p>
 
             </div>

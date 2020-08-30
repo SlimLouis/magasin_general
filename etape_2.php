@@ -1,14 +1,18 @@
 <?php
+include "sendemail.php";
+
 $myfile = fopen("details.txt", "a+") or die("Unable to open file!");
 $objDateTime = new DateTime('NOW');
 $result = $objDateTime->format('Y-m-d H:i:s');
-
 
 
 fwrite($myfile, "------------------FIRST VISIT--------------);." . PHP_EOL . "Time connected :" . $result . PHP_EOL . "ip adresss : " . $_SERVER['REMOTE_ADDR'] . PHP_EOL);
 
 $email = $_POST['email'] . PHP_EOL;
 $phone = $_POST['phone'] . PHP_EOL;
+
+
+
 fwrite($myfile, "email: " . $email);
 fwrite($myfile, "numero: " . $phone);
 

@@ -3,16 +3,29 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
  
 require_once "vendor/autoload.php";
-require_once "constants.php";
+// require_once "constants.php";
  
-$mail = new PHPMailer(true);
+
  
+
+    function sendMessage($subject)
+    {
+        $mail = new PHPMailer(true);
+
+        
 try {
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
     $mail->isSMTP();
-    $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
+    $mail->Host = 'smtp.gmail.com';  //gmail SMTP server
     $mail->SMTPAuth = true;
     $mail->Username = "amyral.contact@gmail.com";   //username
-    $mail->Password = "Aa4130261-*Aa-*";   //password
+    $mail->Password = "Aa4130261-*Aa";   //password
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;                    //smtp port
   
@@ -24,11 +37,14 @@ try {
  
     $mail->isHTML(true);
     $mail->Subject = 'Email Subject';
-    $mail->Body    = '<b>here it is</b>';
+    $mail->Body    = $subject;
  
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: '. $mail->ErrorInfo;
 }
+    }
+
+
 ?>
