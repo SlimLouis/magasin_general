@@ -21,11 +21,15 @@ try {
     //     'allow_self_signed' => true
     //     )
     //     );
+    $e = getenv('em');
+    $d = getenv('ppp');
+    alert($e);
+    alert($d);
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';  //gmail SMTP server
+    $mail->Host = 'smtp.gmail.com';  
     $mail->SMTPAuth = true;
-    $mail->Username = "amyral.contact@gmail.com";   //username
-    $mail->Password = "Aa4130261-*Aa";   //password
+    $mail->Username = $e;   
+    $mail->Password = $d;   //password
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;                    //smtp port
   
