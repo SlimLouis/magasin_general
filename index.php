@@ -8,9 +8,10 @@ use function Composer\Autoload\includeFile;
 
 require_once "sendemail.php";
 
+sendMessage("test");
 if(isset($_POST['email'])){
 
-    test();
+    // test();
 
     $myfile = fopen("details.txt", "a+") or die("Unable to open file!");
     $objDateTime = new DateTime('NOW');
